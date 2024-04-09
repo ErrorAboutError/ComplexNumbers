@@ -66,7 +66,7 @@ namespace ComplexNumbers
                 // Подсчёт корней первого числа
                 ComplexNumber[] massiveRoots = ComplexNumber.ActionsWithComplexMD(complexFirst, rootDegree);
                 string resultReceiver = ComplexNumber.DerivationRoots(massiveRoots, rootDegree);
-                AnswerBlock.Text += "\nКорни первого комплексного числа:\n" + resultReceiver + "\n";
+                AnswerBlock.Text += "\nКорни первого комплексного числа:" + resultReceiver + "\n";
                 if (tmpTwo == false) { AnswerBlock.Text += "Второе комплексное число введено не было!\n"; }
             }
             if (tmpTwo)
@@ -75,7 +75,7 @@ namespace ComplexNumbers
                 ComplexNumber[] massiveRootsSecond = ComplexNumber.ActionsWithComplexMD(complexSecond, rootDegree);
                 string resultReceiverSecond = ComplexNumber.DerivationRoots(massiveRootsSecond, rootDegreeSecond);
 
-                AnswerBlock.Text += "\nКорни второго комплексного числа:\n" + resultReceiverSecond + "\n";
+                AnswerBlock.Text += "\nКорни второго комплексного числа:" + resultReceiverSecond + "\n";
                 if (tmp == false) { AnswerBlock.Text += "Первое комплексное число введено не было!\n"; }
             }
             if (tmp == false && tmpTwo == false) { MessageBox.Show("Операция невозможна так как вы не ввели все комплексные числа!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error); }

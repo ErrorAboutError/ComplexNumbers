@@ -68,7 +68,7 @@ namespace ComplexNumbers
         //Вывод корней
         public static string DerivationRoots(ComplexNumber[] root, int n)
         {
-            string resultString = "";
+            string resultString = "\n";
             for (int i = 0; i < n; i++)
             {
                 if (root[i].imaginaryPartNumber >= 0)
@@ -89,7 +89,7 @@ namespace ComplexNumbers
         // Метод вывода комплексного числа
         public static string ComplexNumberOutput(ComplexNumber z)
         {
-            string resultComplexString = "";
+            string resultComplexString = "\n";
             if (z.imaginaryPartNumber > 0)
             {
                 resultComplexString += "z = " +
