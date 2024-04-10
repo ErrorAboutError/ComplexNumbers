@@ -114,7 +114,7 @@ namespace ComplexNumbers
             if (tmp && tmpTwo)
             {
                 var complexResult = ComplexNumber.ActionsWithComplex(complexFirst, complexSecond);
-                AnswerBlock.Text += "\nРезультат сложения комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
+                AnswerBlock.Text += "\n\nРезультат сложения комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
             }
             else
             {
@@ -154,7 +154,7 @@ namespace ComplexNumbers
             if (tmp && tmpTwo)
             {
                 var complexResult = ComplexNumber.ActionsWithComplexSub(complexFirst, complexSecond);
-                AnswerBlock.Text += "\nРезультат вычитания комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
+                AnswerBlock.Text += "\n\nРезультат вычитания комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
             }
             else
             {
@@ -194,7 +194,7 @@ namespace ComplexNumbers
             if (tmp && tmpTwo)
             {
                 var complexResult = ComplexNumber.ActionsWithComplexMD(complexFirst, complexSecond);
-                AnswerBlock.Text += "\nРезультат умножения комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
+                AnswerBlock.Text += "\n\nРезультат умножения комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
             }
             else
             {
@@ -233,7 +233,7 @@ namespace ComplexNumbers
             if (tmp && tmpTwo)
             {
                 var complexResult = ComplexNumber.ActionsWithComplexMDDiv(complexFirst, complexSecond);
-                AnswerBlock.Text += "\nРезультат деления комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
+                AnswerBlock.Text += "\n\nРезультат деления комплексных чисел:\n" + ComplexNumber.ComplexNumberOutput(complexResult);
             }
             else
             {

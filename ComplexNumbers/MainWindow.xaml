@@ -18,13 +18,15 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="z1 = " Height="30" TextAlignment="Justify" HorizontalAlignment="Center" Margin="10 0 10 0"
+            Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
             <TextBox x:Name="CofReal" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Text="+" Height="30" TextAlignment="Justify" HorizontalAlignment="Center" Margin="10 0 10 0"
                         Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
             <TextBox x:Name="CofImaginary" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
             <TextBlock Text="i" Height="30" TextAlignment="Center" HorizontalAlignment="Center"
                        Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
-            <TextBlock Text="Степень корня: " Height="30" TextAlignment="Center" HorizontalAlignment="Center"
+            <TextBlock Text="n = " Height="30" TextAlignment="Center" HorizontalAlignment="Center"
                     Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" Margin="20 0 0 0"/>
             <TextBox x:Name="CofRootDegree" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
             
@@ -32,28 +34,45 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name ="Roots" Content="Корни" Click="Roots_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
-            <Button Name ="Addition" Content="Сложение" Click="Addition_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
-            <Button Name ="Subtraction" Content="Вычитание" Click="Subtraction_Click" Style="{StaticResource buttonStyle2}" ></Button>
+            <TextBlock Text="z2 = " Height="30" TextAlignment="Justify" HorizontalAlignment="Center" Margin="10 0 10 0"
+                        Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+            <TextBox x:Name="CofRealSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="+" Height="30" TextAlignment="Justify" HorizontalAlignment="Center" Margin="10 0 10 0"
+                        Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+            <TextBox x:Name="CofImaginarySecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
+            <TextBlock Text="i" Height="30" TextAlignment="Center" HorizontalAlignment="Center"
+            Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+            <TextBlock Text="n =  " Height="30" TextAlignment="Center" HorizontalAlignment="Center"
+            Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" Margin="20 0 0 0"/>
+            <TextBox x:Name="CofRootDegreeSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
+
+
+
             
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name ="Multiplication" Content="Умножение" Click="Multiplication_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
+            <!--<Button Name ="Multiplication" Content="Умножение" Click="Multiplication_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
             <Button Name ="Division" Content="Деление" Click="Division_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
-            <Button Name ="TrigonometricForm" Content="Триг. форма" Click="TrigonometricForm_Click" Style="{StaticResource buttonStyle2}"></Button>
+            <Button Name ="TrigonometricForm" Content="Триг. форма" Click="TrigonometricForm_Click" Style="{StaticResource buttonStyle2}"></Button> -->
+            <Button Name ="Roots" Content="Извлечение корня" Click="Roots_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
+            <Button Name ="Addition" Content="Сложение" Click="Addition_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
+            <Button Name ="Subtraction" Content="Вычитание" Click="Subtraction_Click" Style="{StaticResource buttonStyle2}" ></Button>
+
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox x:Name="CofRealSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="CofRealSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Text="+" Height="30" TextAlignment="Justify" HorizontalAlignment="Center" Margin="10 0 10 0"
-                Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+                Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/> 
             <TextBox x:Name="CofImaginarySecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
             <TextBlock Text="i" Height="30" TextAlignment="Center" HorizontalAlignment="Center"
                         Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
             <TextBlock Text="Степень корня: " Height="30" TextAlignment="Center" HorizontalAlignment="Center"
                         Foreground="Black" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" Margin="20 0 0 0"/>
-            <TextBox x:Name="CofRootDegreeSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/>
-
+            <TextBox x:Name="CofRootDegreeSecond" Style="{StaticResource placeHolder}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 0 5 0 "/> -->
+            <Button Name ="Multiplication" Content="Умножение" Click="Multiplication_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
+            <Button Name ="Division" Content="Деление" Click="Division_Click" Style="{StaticResource buttonStyle2}" Margin="0 0 10 0"></Button>
+            <Button Name ="TrigonometricForm" Content="Триг. форма" Click="TrigonometricForm_Click" Style="{StaticResource buttonStyle2}"></Button>
 
         </StackPanel>
 
