@@ -27,6 +27,10 @@ namespace ComplexNumbers
         double imaginaryPartSecond; // Мнимая часть первого числа
         int rootDegreeSecond;  // Степень корня первого комплексного числа
 
+        double coefM; // Коэффициент M
+        double coefN; // Коэффициент N
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +49,24 @@ namespace ComplexNumbers
                     realPartFirst = Convert.ToDouble(CofReal.Text);
                     imaginaryPartFirst = Convert.ToDouble(CofImaginary.Text);
                     rootDegree = Convert.ToInt32(CofRootDegree.Text);
+                    
+                    if (CofRootM.Text=="")
+                    {
+                        coefM = 1;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            coefM = Convert.ToDouble(CofRootM.Text);
+                            realPartFirst = coefM * realPartFirst;
+                            imaginaryPartFirst = coefM * imaginaryPartFirst;
+                        } catch (Exception ex)
+                        {
+                            MessageBox.Show("Неверный ввод данных!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                       
+                    }
                     complexFirst = new ComplexNumber(realPartFirst, imaginaryPartFirst);
                     tmp = true;
                 }
@@ -53,8 +75,30 @@ namespace ComplexNumbers
                     realPartSecond = Convert.ToDouble(CofRealSecond.Text);
                     imaginaryPartSecond = Convert.ToDouble(CofImaginarySecond.Text);
                     rootDegreeSecond = Convert.ToInt32(CofRootDegreeSecond.Text);
+                    
+                    if (CofRootN.Text == "")
+                    {
+                       
+                        coefN = 1;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            coefN = Convert.ToDouble(CofRootM.Text);
+
+                            realPartSecond = coefN * realPartSecond;
+                            imaginaryPartSecond = coefN * imaginaryPartSecond;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Неверный ввод данных!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+                    }
                     complexSecond = new ComplexNumber(realPartSecond, imaginaryPartSecond);
                     tmpTwo = true;
+
                 }               
             }
             catch (Exception)

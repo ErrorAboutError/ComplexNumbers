@@ -40,27 +40,43 @@ namespace ComplexNumbers
             double module;
             if (z1.realPartNumber != 0 && z1.imaginaryPartNumber == 0) module = Math.Abs(z1.realPartNumber);
             if (z1.realPartNumber == 0 && z1.imaginaryPartNumber != 0) module = Math.Abs(z1.imaginaryPartNumber);
-            else module = Math.Sqrt((z1.realPartNumber * z1.realPartNumber) + (z1.imaginaryPartNumber * z1.imaginaryPartNumber));
+            else module = Math.Pow(Math.Sqrt((z1.realPartNumber * z1.realPartNumber) + (z1.imaginaryPartNumber * z1.imaginaryPartNumber)), 1.0/n);
 
             //Считаем аргумент
             double arg = 0;
-            if (z1.realPartNumber > 0) arg = RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber < 0 && z1.imaginaryPartNumber >= 0) arg = Math.PI + RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber < 0 && z1.imaginaryPartNumber < 0) arg = -Math.PI + RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber == 0 && z1.imaginaryPartNumber > 0) arg = Math.PI / 2;
-            if (z1.realPartNumber == 0 && z1.imaginaryPartNumber < 0) arg = -Math.PI / 2;
+            if (z1.realPartNumber > 0 && z1.imaginaryPartNumber >= 0) arg = (Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
+            else if (z1.realPartNumber < 0 && z1.imaginaryPartNumber >= 0) arg = Math.PI - (Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber < 0 && z1.imaginaryPartNumber < 0) arg = Math.PI + (Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber > 0 && z1.imaginaryPartNumber < 0) arg = 2 * Math.PI - (Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber == 0 && z1.imaginaryPartNumber > 0) arg = Math.PI / 2;
+            else  arg = (3*Math.PI) / 2;
+
+            //if (x > 0 && y >= 0) arg = Math.Atan(y / x);
+            //else if (x < 0 && y >= 0) arg = Math.PI - Math.Atan(Math.Abs(y / x));
+            //else if (x < 0 && y < 0) arg = Math.PI + Math.Atan(Math.Abs(y / x));
+            //else if (x > 0 && y < 0) arg = 2 * Math.PI - Math.Atan(Math.Abs(y / x));
+            //else if (x == 0 && y > 0) arg = Math.PI / 2;
+            //else arg = (3 * Math.PI) / 2;
 
             double tmp2;
             double tmp3;
             ComplexNumber[] root = new ComplexNumber[n];
 
+            //for (int k = 0; k < grade; k++)
+            //    res[k] = new ComplexNumber(Math.Round(module * Math.Cos((arg + 2 * Math.PI * k) / grade), 2),
+            //        Math.Round(module * Math.Sin((arg + 2 * Math.PI * k) / grade), 2));
+
             // Считаем корни
             for (int i = 0; i < n; i++)
             {
-                tmp2 = Math.Pow(module, 1 / n) * Math.Cos(DegreesToRadians((arg + 2 * Math.PI * i) / n));// * 1000);
-                tmp3 = Math.Pow(module, 1 / n) * Math.Sin(DegreesToRadians((arg + 2 * Math.PI * i) / n)); // *1000);
-
+                //    tmp2 = Math.Round(Math.Pow(module, 1 / n) * Math.Cos(DegreesToRadians((arg + 2 * Math.PI * i) / n)), 3);// * 1000);
+                //    tmp3 = Math.Round(Math.Pow(module, 1 / n) * Math.Sin(DegreesToRadians((arg + 2 * Math.PI * i) / n)), 3); // *1000);
+                tmp2 = Math.Round(module * Math.Cos((arg + 2 * Math.PI * i) / n), 3);// * 1000);
+                tmp3 = Math.Round(module * Math.Sin((arg + 2 * Math.PI * i) / n), 3); // *1000);
                 root[i] = new ComplexNumber(tmp2, tmp3);
+
+                //res[k] = new ComplexNumber(Math.Round(module * Math.Cos((arg + 2 * Math.PI * k) / grade), 2),
+                        //Math.Round(module * Math.Sin((arg + 2 * Math.PI * k) / grade), 2));
             }
             return root;
         }
@@ -150,12 +166,14 @@ namespace ComplexNumbers
             else module = Math.Round(Math.Sqrt((z1.realPartNumber * z1.realPartNumber) + (z1.imaginaryPartNumber * z1.imaginaryPartNumber)), 3);
 
             //Считаем аргумент
+           
             double arg = 0;
-            if (z1.realPartNumber > 0) arg = RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber < 0 && z1.imaginaryPartNumber >= 0) arg = Math.PI + RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber < 0 && z1.imaginaryPartNumber < 0) arg = -Math.PI + RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
-            if (z1.realPartNumber == 0 && z1.imaginaryPartNumber > 0) arg = Math.PI / 2;
-            if (z1.realPartNumber == 0 && z1.imaginaryPartNumber < 0) arg = -Math.PI / 2;
+            if (z1.realPartNumber > 0 && z1.imaginaryPartNumber >= 0) arg = RadiansToDegrees(Math.Atan(z1.imaginaryPartNumber / z1.realPartNumber));
+            else if (z1.realPartNumber < 0 && z1.imaginaryPartNumber >= 0) arg = Math.PI - RadiansToDegrees(Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber < 0 && z1.imaginaryPartNumber < 0) arg = Math.PI + RadiansToDegrees(Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber > 0 && z1.imaginaryPartNumber < 0) arg = 2 * Math.PI - RadiansToDegrees(Math.Atan(Math.Abs(z1.imaginaryPartNumber / z1.realPartNumber)));
+            else if (z1.realPartNumber == 0 && z1.imaginaryPartNumber > 0) arg = Math.PI / 2;
+            else arg = (3 * Math.PI) / 2;
 
             string resultStringTrigonometric;
             resultStringTrigonometric = module + " * " + "(cos(" + Math.Round(arg, 3) + ") - isin(" +Math.Round(arg, 3) +"))";
